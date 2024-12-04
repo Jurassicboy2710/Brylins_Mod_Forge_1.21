@@ -1,6 +1,6 @@
-package com.brylin.beginnermod.items;
+package com.brylin.brylinsmod.items;
 
-import com.brylin.beginnermod.BeginnerMod;
+import com.brylin.brylinsmod.BrylinsMod;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -9,7 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, BeginnerMod.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, BrylinsMod.MOD_ID);
 
     public static final RegistryObject<Item> BRYLINITE = ITEMS.register("brylinite",
             () -> new Item(new Item.Properties()));

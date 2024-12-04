@@ -1,7 +1,8 @@
-package com.brylin.beginnermod;
+package com.brylin.brylinsmod;
 
-import com.brylin.beginnermod.items.ModItems;
+import com.brylin.brylinsmod.items.ModItems;
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -16,13 +17,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
-@Mod(BeginnerMod.MOD_ID)
-public class BeginnerMod {
+@Mod(BrylinsMod.MOD_ID)
+public class BrylinsMod {
 
-    public static final String MOD_ID = "beginnermod";
+    public static final String MOD_ID = "brylinsmod";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public BeginnerMod() {
+    public BrylinsMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
@@ -38,7 +39,9 @@ public class BeginnerMod {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.BRYLINITE);
+        }
     }
 
     @SubscribeEvent
