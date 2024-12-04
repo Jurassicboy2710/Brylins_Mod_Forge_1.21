@@ -1,5 +1,6 @@
 package com.brylin.brylinsmod;
 
+import com.brylin.brylinsmod.items.ModCreativeModeTabs;
 import com.brylin.brylinsmod.items.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -25,6 +26,7 @@ public class BrylinsMod {
 
     public BrylinsMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModCreativeModeTabs.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
 
